@@ -94,17 +94,29 @@ export default function OnboardingScreen() {
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={handleGoogleLogin}
-            style={styles.socialButton}>
-            <FontAwesome name="google" size={18} color="#18181B" style={styles.socialIcon} />
-            <Text style={styles.socialButtonText}>Google</Text>
+            style={styles.socialButtonWrapper}>
+            <LinearGradient
+              colors={['#FDCA661F', '#DA9A451F']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.socialButton}>
+              <FontAwesome name="google" size={18} color="#18181B" style={styles.socialIcon} />
+              <Text style={styles.socialButtonText}>Google</Text>
+            </LinearGradient>
           </TouchableOpacity>
 
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={handleAppleLogin}
-            style={styles.socialButton}>
-            <Ionicons name="logo-apple" size={20} color="#18181B" style={styles.socialIcon} />
-            <Text style={styles.socialButtonText}>Apple</Text>
+            style={styles.socialButtonWrapper}>
+            <LinearGradient
+              colors={['#FDCA661F', '#DA9A451F']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.socialButton}>
+              <Ionicons name="logo-apple" size={20} color="#18181B" style={styles.socialIcon} />
+              <Text style={styles.socialButtonText}>Apple</Text>
+            </LinearGradient>
           </TouchableOpacity>
         </View>
 
@@ -237,25 +249,27 @@ const styles = StyleSheet.create({
   },
   socialRow: {
     flexDirection: 'row',
-    gap: 14,
+    gap: 12,
+  },
+  socialButtonWrapper: {
+    flex: 1,
   },
   socialButton: {
-    flex: 1,
-    height: 50,
-    borderRadius: 25,
+    height: 52,
+    borderRadius: 18,
     borderWidth: 1.5,
-    borderColor: '#EFE6D2',
-    backgroundColor: '#FFFDF9',
+    borderColor: '#DDAA1A',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   socialIcon: {
     marginRight: 8,
   },
   socialButtonText: {
+    fontFamily: 'Rubik_600SemiBold',
     fontSize: 15,
-    fontWeight: '700',
     color: '#18181B',
   },
   signupContainer: {
@@ -266,27 +280,35 @@ const styles = StyleSheet.create({
     marginBottom: 18,
   },
   signupPrompt: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#27272A',
+    fontFamily: 'Rubik_500Medium',
+    fontSize: 16,
+    color: '#18181B',
+    lineHeight: 22.4,
+    letterSpacing: 0,
   },
   signupLink: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#D97706',
+    fontFamily: 'Rubik_500Medium',
+    fontSize: 16,
+    color: '#DDAA1A',
+    textDecorationLine: 'underline',
+    lineHeight: 22.4,
+    letterSpacing: 0,
   },
   legalContainer: {
     alignItems: 'center',
+    marginTop: 8,
   },
   legalText: {
-    fontSize: 11,
-    color: '#71717A',
+    fontFamily: 'Rubik_400Regular',
+    fontSize: 14,
+    color: '#000000',
     textAlign: 'center',
-    lineHeight: 16,
+    lineHeight: 19.6,
+    letterSpacing: 0,
   },
   legalLink: {
-    color: '#D97706',
+    fontFamily: 'Rubik_400Regular',
+    color: '#DDAA1A',
     textDecorationLine: 'underline',
-    fontWeight: '500',
   },
 });
