@@ -1,10 +1,10 @@
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   Image,
   Pressable,
+  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -38,7 +38,7 @@ export default function OnboardingScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="dark" />
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
 
       {/* Top / Hero Section */}
       <View style={styles.topSection}>
@@ -67,11 +67,18 @@ export default function OnboardingScreen() {
           onPress={handleEmailLogin}
           style={styles.primaryButtonWrapper}>
           <LinearGradient
-            colors={['#F5C22B', '#E5A110', '#D18800']}
+            colors={['#E39800', '#E0AC0B']}
             start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.primaryButton}>
-            <Text style={styles.primaryButtonText}>Log In via Email</Text>
+            end={{ x: 1, y: 0 }}
+            style={styles.borderGradient}>
+            <LinearGradient
+              colors={['#F9E232', '#ECC220', '#D49B16']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.primaryButton}>
+              <View style={styles.buttonInnerHighlight} />
+              <Text style={styles.primaryButtonText}>Log In via Email</Text>
+            </LinearGradient>
           </LinearGradient>
         </TouchableOpacity>
 
@@ -147,24 +154,25 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   logo: {
-    width: 104,
-    height: 104,
+    width: 96,
+    height: 96,
     borderRadius: 22,
   },
   title: {
-    fontSize: 26,
-    fontWeight: '800',
-    color: '#18181B',
+    fontFamily: 'Rubik_600SemiBold',
+    fontSize: 24,
+    color: '#1A1A1A',
     textAlign: 'center',
-    lineHeight: 33,
-    letterSpacing: -0.3,
+    lineHeight: 31,
+    letterSpacing: 0,
   },
   subtitle: {
+    fontFamily: 'Rubik_400Regular',
     fontSize: 14,
-    fontWeight: '400',
-    color: '#71717A',
+    color: 'rgba(26, 26, 26, 0.56)',
     textAlign: 'center',
-    lineHeight: 20,
+    lineHeight: 19.6,
+    letterSpacing: 0,
     marginTop: 10,
     paddingHorizontal: 12,
   },
@@ -174,24 +182,41 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   primaryButtonWrapper: {
-    borderRadius: 30,
-    shadowColor: '#D18800',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.28,
-    shadowRadius: 10,
-    elevation: 5,
+    borderRadius: 18,
+    shadowColor: '#D49B16',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  borderGradient: {
+    padding: 1.5,
+    borderRadius: 18,
   },
   primaryButton: {
-    height: 52,
-    borderRadius: 30,
+    height: 49,
+    borderRadius: 16.5,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  buttonInnerHighlight: {
+    position: 'absolute',
+    top: 0,
+    left: 20,
+    right: 20,
+    height: 2,
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    borderRadius: 1,
   },
   primaryButtonText: {
+    fontFamily: 'Rubik_600SemiBold',
     fontSize: 16,
-    fontWeight: '700',
     color: '#FFFFFF',
-    letterSpacing: 0.2,
+    textAlign: 'center',
+    lineHeight: 22.4,
+    letterSpacing: 0,
   },
   dividerContainer: {
     flexDirection: 'row',
@@ -201,13 +226,13 @@ const styles = StyleSheet.create({
   dividerLine: {
     flex: 1,
     height: 1,
-    backgroundColor: '#E4E4E7',
+    backgroundColor: '#00000066',
   },
   dividerText: {
     marginHorizontal: 12,
     fontSize: 12,
     fontWeight: '600',
-    color: '#A1A1AA',
+    color: '#00000066',
     letterSpacing: 0.8,
   },
   socialRow: {
