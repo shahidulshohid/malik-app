@@ -1,5 +1,6 @@
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   Image,
@@ -13,7 +14,7 @@ import {
 
 export default function OnboardingScreen() {
   const handleEmailLogin = () => {
-    // Navigate to email login screen
+    router.push('/login');
   };
 
   const handleGoogleLogin = () => {
