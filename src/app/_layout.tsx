@@ -39,6 +39,7 @@ export default function RootLayout() {
           contentStyle: { backgroundColor: '#FFFFFF' },
         }}>
         <Stack.Screen name="index" />
+        <Stack.Screen name="login" />
       </Stack>
     </View>
   );
